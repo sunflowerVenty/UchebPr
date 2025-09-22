@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+		x:DataType="vm:MainWindowViewModel"
+		xmlns:vm="using:UchebPr.ViewModels"
+        x:Class="UchebPr.CreateAndChangeUser"
+        Title="CreateAndChangeUser">
+  <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" Margin="10">
+	  
+	  <TextBlock Text="ФИО:" Grid.Row="0"/>
+	  <TextBox Name="FullNameText" Grid.Row="1"></TextBox>
+	  <TextBlock Text="Номер телефона:" Grid.Row="2"/>
+	  <TextBox Name="PhoneNumberText" Grid.Row="3"></TextBox>
+	  <TextBlock Text="Описание:" Grid.Row="4"/>
+	  <TextBox Name="DescriptionText" Grid.Row="5"></TextBox>
+	  <TextBlock Text="Роль айди:" Grid.Row="6"/>
+	  <ComboBox Name="RolesCmb" Grid.Row="7" ItemsSource="{Binding Roles}">
+		  <ComboBox.ItemTemplate>
+			  <DataTemplate>
+				  <StackPanel Orientation="Horizontal">
+					  <TextBlock Text="{Binding IdRole}"/>
+					  <TextBlock Text="."/>
+					  <TextBlock Text="{Binding Name}"/>
+				  </StackPanel>
+				  
+			  </DataTemplate>
+		  </ComboBox.ItemTemplate>
+	  </ComboBox>
+	  <Button Content="Сохранить" Margin="10" Grid.Row="8" HorizontalAlignment="Right" Click="Button_Click"/>
+  </Grid>
+</Window>
